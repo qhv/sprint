@@ -1,5 +1,6 @@
 package qhv.alex.spring.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
@@ -8,6 +9,7 @@ import qhv.alex.spring.config.condition.JpaCondition;
 
 import javax.annotation.PostConstruct;
 
+@Slf4j
 @Configuration
 @Conditional(JpaCondition.class)
 public class JpaConfiguration {
@@ -20,6 +22,6 @@ public class JpaConfiguration {
 
     @PostConstruct
     void init() {
-        System.out.println("Jpa configuration initiating...");
+        log.warn("Jpa configuration initiating...");
     }
 }
