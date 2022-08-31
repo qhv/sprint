@@ -1,30 +1,28 @@
 package qhv.alex.spring.database.ConnectionPool;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import java.util.List;
-import java.util.Map;
 
+@Component("pool1")
+@RequiredArgsConstructor
 public class ConnectionPool {
 
+    @Value("${db.username}")
     private final String username;
+    @Value("${db.pool.size}")
     private final Integer poolsize;
-    private final List<Object> args;
-    private Map<String, Object> properties;
+//    private final List<Object> args;
+//    private Map<String, Object> properties;
 
-    public ConnectionPool(String username,
-                          Integer poolsize,
-                          List<Object> args,
-                          Map<String, Object> properties) {
-        this.username = username;
-        this.poolsize = poolsize;
-        this.args = args;
-        this.properties = properties;
-    }
-
-    public void setProperties(Map<String, Object> properties) {
-        this.properties = properties;
-    }
+//    public ConnectionPool(@Value("${db.username}") String username,
+//                          @Value("${db.pool.size}") Integer poolsize) {
+//        this.username = username;
+//        this.poolsize = poolsize;
+//    }
 
     @PostConstruct
     private void init() {

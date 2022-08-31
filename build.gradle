@@ -1,5 +1,8 @@
 plugins {
     id 'java'
+    id 'org.springframework.boot' version '2.7.3'
+    id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+    id 'io.freefair.lombok' version '6.5.0.3'
 }
 
 group 'org.example'
@@ -10,10 +13,13 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework:spring-core:5.3.22'
-    implementation 'org.springframework:spring-context:5.3.22'
+    implementation 'org.springframework.boot:spring-boot-starter' // version from spring plugins
+//    implementation 'org.springframework:spring-core:5.3.22' // from spring plugins
+//    implementation 'org.springframework:spring-context:5.3.22' // from spring plugins
 
-    implementation 'jakarta.annotation:jakarta.annotation-api:1.3.5'
+//    implementation 'jakarta.annotation:jakarta.annotation-api:1.3.5' // from spring plugins
+
+    implementation 'org.postgresql:postgresql' // version from spring plugins
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
