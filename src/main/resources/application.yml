@@ -21,10 +21,25 @@ db:
       timeout: 3
 spring.profiles.active: qa
 
+spring.datasource:
+
 logging:
   level:
-    root: warn
+    root: info
     qhv.alex.spring.database.ConnectionPool.ConnectionPool: info
   file:
     name: alex.log
     path: /
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:52000/postgres
+    username: post
+    password: pass
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        hbm2ddl:
+          auto: validate
