@@ -7,7 +7,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.ApplicationEventPublisher;
 import qhv.alex.spring.database.entity.Company;
-import qhv.alex.spring.database.repository.CrudRepository;
+import qhv.alex.spring.database.repository.CompanyRepository;
 import qhv.alex.spring.dto.CompanyReadDto;
 import qhv.alex.spring.listner.entity.EntityEvent;
 
@@ -26,7 +26,7 @@ class CompanyServiceTest {
     @Mock
     private UserService userService;
     @Mock
-    private CrudRepository<Integer, Company> companyRepository;
+    private CompanyRepository companyRepository;
     @Mock
     private ApplicationEventPublisher eventPublisher;
     @InjectMocks
