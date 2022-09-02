@@ -1,6 +1,7 @@
 package qhv.alex.spring.integration.database.repository;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -9,6 +10,7 @@ import qhv.alex.spring.database.entity.Role;
 import qhv.alex.spring.database.entity.User;
 import qhv.alex.spring.database.querydsl.QPredicates;
 import qhv.alex.spring.database.repository.UserRepository;
+import qhv.alex.spring.dto.PersonalInfo;
 import qhv.alex.spring.dto.UserFilter;
 import qhv.alex.spring.integration.annotation.IT;
 
@@ -18,11 +20,25 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static qhv.alex.spring.database.entity.QUser.user;
 
+@Slf4j
 @IT
 @RequiredArgsConstructor
 class UserRepositoryTest {
 
     private final UserRepository userRepository;
+
+    @Test
+    void checkBatch() {
+        var users = userRepository.findAll();
+//        userRepository.updateCompanyAndRole(users);
+        userRepository.updateCompanyAndRoleNamed(users);
+    }
+
+    @Test
+    void checkJdbcTemplate() {
+        var users = userRepository.findAllByCompanyIdAndRole(1, Role.USER);
+        assertThat(users).hasSize(1);
+    }
 
     @Test
     @Commit
