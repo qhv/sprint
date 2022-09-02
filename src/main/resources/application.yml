@@ -21,8 +21,6 @@ db:
       timeout: 3
 spring.profiles.active: qa
 
-spring.datasource:
-
 logging:
   level:
     root: info
@@ -30,6 +28,7 @@ logging:
   file:
     name: alex.log
     path: /
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:52000/postgres
