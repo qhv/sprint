@@ -24,12 +24,18 @@ spring.profiles.active: qa
 logging:
   level:
     root: info
-    org.springframework.jdbc.core: trace
+    org.springframework.jdbc.core: info
   file:
     name: alex.log
     path: /
 
 spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+    format:
+      date: iso
   datasource:
     url: jdbc:postgresql://localhost:52000/postgres
     username: post
@@ -38,9 +44,8 @@ spring:
   jpa:
     properties:
       hibernate:
-        fetch_size: 50
-        batch_size: 50
         show_sql: true
         format_sql: true
         hbm2ddl:
           auto: validate
+    open-in-view: false

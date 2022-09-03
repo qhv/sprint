@@ -32,7 +32,7 @@ public class CompanyServiceIT extends IntegrationTestBase {
 
         assertThat(actualResult).isPresent();
 
-        var expectedResult = new CompanyReadDto(COMPANY_ID);
+        var expectedResult = new CompanyReadDto(COMPANY_ID, null);
         actualResult.ifPresent(actual -> assertThat(actual).isEqualTo(expectedResult));
     }
 }
