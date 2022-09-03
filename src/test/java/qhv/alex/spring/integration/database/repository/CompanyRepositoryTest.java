@@ -1,10 +1,12 @@
 package qhv.alex.spring.integration.database.repository;
 
 import lombok.RequiredArgsConstructor;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.transaction.support.TransactionTemplate;
 import qhv.alex.spring.database.entity.Company;
 import qhv.alex.spring.database.repository.CompanyRepository;
+import qhv.alex.spring.integration.IntegrationTestBase;
 import qhv.alex.spring.integration.annotation.IT;
 
 import javax.persistence.EntityManager;
@@ -15,9 +17,8 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@IT
 @RequiredArgsConstructor
-class CompanyRepositoryTest {
+class CompanyRepositoryTest extends IntegrationTestBase {
 
     private static final Integer APPLE_ID = 5;
     private final EntityManager entityManager;
@@ -31,6 +32,7 @@ class CompanyRepositoryTest {
     }
 
     @Test
+    @Disabled
     void delete() {
         var maybeCompany = companyRepository.findById(APPLE_ID);
         assertThat(maybeCompany).isPresent();
