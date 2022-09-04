@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import qhv.alex.spring.config.DatabaseProperties;
 import qhv.alex.spring.dto.CompanyReadDto;
 import qhv.alex.spring.integration.IntegrationTestBase;
-import qhv.alex.spring.integration.annotation.IT;
 import qhv.alex.spring.service.CompanyService;
 
 import static org.assertj.core.api.Assertions.assertThat;
