@@ -8,8 +8,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import javax.servlet.http.HttpServletRequest;
 
 @Slf4j
-@ControllerAdvice
-public class ControllerExceptionHandler /* extends ResponseEntityExceptionHandler */ {
+@ControllerAdvice(basePackages = "qhv.alex.spring.http.controller")
+public class ControllerExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public String handleExceptions(Exception exception, HttpServletRequest request) {

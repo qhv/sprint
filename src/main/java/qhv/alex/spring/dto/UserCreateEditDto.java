@@ -3,6 +3,7 @@ package qhv.alex.spring.dto;
 import lombok.Value;
 import lombok.experimental.FieldNameConstants;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 import qhv.alex.spring.database.entity.Role;
 import qhv.alex.spring.validation.UserInfo;
 import qhv.alex.spring.validation.group.CreateAction;
@@ -36,4 +37,6 @@ public class UserCreateEditDto {
 
     @NotNull
     Integer companyId;
+
+    MultipartFile image;
 }

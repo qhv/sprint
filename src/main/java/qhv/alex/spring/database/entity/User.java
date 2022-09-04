@@ -14,7 +14,7 @@ import java.util.List;
 //        attributeNodes = @NamedAttributeNode("company"))
 @Data
 @ToString(exclude = "userChats")
-@EqualsAndHashCode(of = "username")
+@EqualsAndHashCode(of = "username", callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -35,6 +35,8 @@ public class User extends AuditingEntity<Long> {
     private String firstname;
 
     private String lastname;
+
+    private String image;
 
     @Enumerated(EnumType.STRING)
     private Role role;
